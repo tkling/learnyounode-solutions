@@ -1,0 +1,23 @@
+{
+  "name": "learnyounode-solutions",
+  "version": "0.0.1",
+  "description": "tkling's solutions to nodeschool.io's learnyounode program",
+  "main": "none!",
+  "dependencies": {
+    "concat-stream": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkling/learnyounode-solutions.git"
+  },
+  "author": "tkling (Tyler Kling)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkling/learnyounode-solutions/issues"
+  },
+  "homepage": "https://github.com/tkling/learnyounode-solutions#readme"
+}
