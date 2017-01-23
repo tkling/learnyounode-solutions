@@ -9,7 +9,7 @@ const routemap = {
 };
 
 function parsetime(timestring) {
-  let date = new Date(timestring);
+  const date = new Date(timestring);
   return JSON.stringify({
     'hour'  : date.getHours(),
     'minute': date.getMinutes(),
@@ -31,11 +31,11 @@ const server = http.createServer(function(req, res) {
   const endpoint = routemap[reqInfo.pathname.toLowerCase()];
 
   if (endpoint) {
-    const iso = reqInfo.query.iso;
-    if (iso) {
-      return writeResponse(res, endpoint(iso), 200);
+    const isotime = reqInfo.query.iso;
+    if (isotime) {
+      return writeResponse(res, endpoint(isotime), 200);
     } else {
-      return writeResponse(res, 'Missing iso query string param\n', 400);
+      return writeResponse(res, 'Missing iso query param\n', 400);
     }
   } else {
     let body = JSON.stringify({ 'error': 'endpoint not recognized' });
