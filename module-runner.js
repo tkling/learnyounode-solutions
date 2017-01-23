@@ -1,7 +1,9 @@
-var filenameFilter = require('./filter-module.js');
+'use strict';
 
-var filedir = process.argv[2]
-var fileext = process.argv[3]
+const filenameFilter = require('./filter-module.js');
+
+const filedir = process.argv[2]
+const fileext = process.argv[3]
 
 filenameFilter(filedir, fileext, function(err, filteredFiles) {
   if (err) { return console.log(err); }

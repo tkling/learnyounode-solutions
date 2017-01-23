@@ -1,13 +1,15 @@
-var http = require('http');
-var url = require('url');
+'use strict';
 
-var routemap = {
+const http = require('http');
+const url = require('url');
+
+const routemap = {
   '/api/parsetime': parsetime,
   '/api/unixtime': unixtime
 };
 
 function parsetime(timestring) {
-  var date = new Date(timestring);
+  let date = new Date(timestring);
   return JSON.stringify({
     'hour'  : date.getHours(),
     'minute': date.getMinutes(),
@@ -24,19 +26,19 @@ function writeResponse(response, body, statusCode) {
   response.end(body);
 }
 
-var server = http.createServer(function(req, res) {
-  var reqInfo = url.parse(req.url, true);
-  var endpoint = routemap[reqInfo.pathname.toLowerCase()];
+const server = http.createServer(function(req, res) {
+  const reqInfo = url.parse(req.url, true);
+  const endpoint = routemap[reqInfo.pathname.toLowerCase()];
 
   if (endpoint) {
-    var iso = reqInfo.query.iso;
+    const iso = reqInfo.query.iso;
     if (iso) {
       return writeResponse(res, endpoint(iso), 200);
     } else {
       return writeResponse(res, 'Missing iso query string param\n', 400);
     }
   } else {
-    var body = JSON.stringify({ 'error': 'endpoint not recognized' });
+    let body = JSON.stringify({ 'error': 'endpoint not recognized' });
     return writeResponse(res, body, 404);
   }
 });

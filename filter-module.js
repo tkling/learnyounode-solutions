@@ -1,9 +1,12 @@
-var fs = require('fs');
-var path = require('path');
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
 
 function filenameFilter(dirname, extension, callback) {
-  var extension = '.' + extension;
-  var returnFiles = [];
+  extension = '.' + extension;
+  const returnFiles = [];
+
   fs.readdir(dirname, function(err, files) {
     if (err) { return callback(err, null); }
     files.forEach(function(file) {

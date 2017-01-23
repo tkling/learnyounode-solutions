@@ -1,5 +1,7 @@
-var concat = require('concat-stream');
-var http = require('http');
+'use strict';
+
+const concat = require('concat-stream');
+const http = require('http');
 
 function handleFullResponse(data) {
   console.log(data.length);

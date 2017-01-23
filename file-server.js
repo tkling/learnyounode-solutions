@@ -1,10 +1,12 @@
-var fs = require('fs');
-var http = require('http');
+'use strict';
 
-var port = process.argv[2];
-var file = process.argv[3];
+const fs = require('fs');
+const http = require('http');
 
-var server = http.createServer(function(req, res) {
+const port = process.argv[2];
+const file = process.argv[3];
+
+const server = http.createServer(function(req, res) {
   res.writeHead(200, { 'content-type': 'text/plain' })
   fs.createReadStream(file, {encoding: 'utf8'}).pipe(res);
 });

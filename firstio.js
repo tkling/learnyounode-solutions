@@ -1,6 +1,8 @@
-var fs = require('fs');
+'use strict';
 
-var contents = fs.readFileSync(process.argv[2]).toString();
-var count = contents.split("\n").length - 1;
+const fs = require('fs');
 
-console.log(count)
+const contents = fs.readFileSync(process.argv[2]).toString();
+const count = contents.split("\n").length - 1;
+
+console.log(count);

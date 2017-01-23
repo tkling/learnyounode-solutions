@@ -1,7 +1,9 @@
-var net = require('net');
-var strftime = require('strftime');
+'use strict';
 
-var server = net.createServer(function(socket) {
+const net = require('net');
+const strftime = require('strftime');
+
+const server = net.createServer(function(socket) {
   socket.end(strftime('%F %R') + "\n");
 });
 

@@ -1,4 +1,4 @@
-var fs = require('fs')
+const fs = require('fs')
 
 function doneReading(err, fileContents) {
   if (err) return console.error(err);

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "tkling's solutions to nodeschool.io's learnyounode program",
   "main": "none!",
+  "engines": { "node": "=6.9.4" },
   "dependencies": {
     "concat-stream": "^1.6.0",
     "strftime": "^0.10.0",

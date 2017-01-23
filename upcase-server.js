@@ -1,7 +1,9 @@
-var http = require('http');
-var map = require('through2-map');
+'use strict'; 
 
-var server = http.createServer(function(req, res) {
+const http = require('http');
+const map = require('through2-map');
+
+const server = http.createServer(function(req, res) {
   if (req.method !== 'POST') {
     res.writeHead(400, { 'content-type': 'text/plain' });
     return res.end('POST PLZ!\n')

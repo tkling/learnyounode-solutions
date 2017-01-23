@@ -1,7 +1,9 @@
-var args = process.argv.slice(2, process.argv.length);
-var sum = 0;
+'use strict';
 
-for (var i = 0; i < args.length; i++) {
+const args = process.argv.slice(2, process.argv.length);
+let sum = 0;
+
+for (let i = 0; i < args.length; i++) {
   sum += Number(args[i]);
 }
 

@@ -1,8 +1,10 @@
-var http = require('http');
-var concatStream = require('concat-stream');
+'use strict';
 
-var completedCallbacks = 0;
-var responseData = [];
+const http = require('http');
+const concatStream = require('concat-stream');
+
+let completedCallbacks = 0;
+const responseData = [];
 
 function handleResponse(given_index, response) {
   response.setEncoding('utf8');
