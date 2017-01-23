@@ -10,20 +10,20 @@ const routemap = {
 
 function parsetime(timestring) {
   const date = new Date(timestring);
-  return JSON.stringify({
+  return {
     'hour'  : date.getHours(),
     'minute': date.getMinutes(),
     'second': date.getSeconds()
-  });
+  };
 }
 
 function unixtime(timestring) {
-  return JSON.stringify({ 'unixtime': new Date(timestring).getTime() });
+  return { 'unixtime': new Date(timestring).getTime() };
 }
 
 function writeResponse(response, body, statusCode) {
   response.writeHead(statusCode, { 'Content-Type': 'application/json' });
-  response.end(body);
+  response.end(JSON.stringify(body));
 }
 
 const server = http.createServer(function(req, res) {
@@ -35,11 +35,10 @@ const server = http.createServer(function(req, res) {
     if (isotime) {
       return writeResponse(res, endpoint(isotime), 200);
     } else {
-      return writeResponse(res, 'Missing iso query param\n', 400);
+      return writeResponse(res, { 'error': 'missing iso query param' }, 400);
     }
   } else {
-    let body = JSON.stringify({ 'error': 'endpoint not recognized' });
-    return writeResponse(res, body, 404);
+    return writeResponse(res, { 'error': 'endpoint not recognized' }, 404);
   }
 });
 
